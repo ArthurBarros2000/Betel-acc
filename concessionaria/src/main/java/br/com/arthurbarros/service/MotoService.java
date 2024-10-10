@@ -20,9 +20,8 @@ public class MotoService {
     }
 
     public List<Moto> list() {
-        Sort sort = Sort.by("Marca").ascending()
-                       .and(Sort.by("Modelo").ascending())
-                       .and(Sort.by("Nome").ascending());
+        Sort sort = Sort.by("marca").ascending()
+         .and(Sort.by("modelo").ascending());             
         return motoRepository.findAll(sort);
     }
 
@@ -30,9 +29,9 @@ public class MotoService {
         motoRepository.save(moto);
         return list();
     }
-
-    public List<Moto> delete(int Codigo_Moto) {
-        motoRepository.deleteById(Codigo_Moto);
+    
+    public List<Moto> delete(int codigoMoto) {
+        motoRepository.deleteById(codigoMoto);
         return list();
     }
 }

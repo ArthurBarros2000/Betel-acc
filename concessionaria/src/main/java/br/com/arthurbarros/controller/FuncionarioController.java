@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import br.com.arthurbarros.entity.Funcionario;
 import br.com.arthurbarros.service.FuncionarioService;
+import jakarta.validation.Valid;
 
 @RestController
 @RequestMapping("/funcionario")
@@ -24,22 +25,23 @@ public class FuncionarioController {
     }
 
     @PostMapping
-    List<Funcionario> create(@RequestBody Funcionario funcionario) {
+    public List<Funcionario> create(@RequestBody @Valid  Funcionario funcionario) {
         return funcionarioService.create(funcionario);
     }
     
     @GetMapping
-    List<Funcionario> list() {
+    public List<Funcionario> list() {
         return funcionarioService.list();
     }
 
-    @PutMapping
-    List<Funcionario> update(@RequestBody Funcionario funcionario) {
+    @PutMapping("/{codigoFuncionario}")
+    public List<Funcionario> update(@PathVariable Integer codigoFuncionario, @RequestBody Funcionario funcionario) {
+        funcionario.setCodigoFuncionario(codigoFuncionario);
         return funcionarioService.update(funcionario);
     }
 
-    @DeleteMapping("{Codigo_Funcionario}")
-    List<Funcionario> delete(@PathVariable("Codigo_Funcionario") int Codigo_Funcionario) {
-        return funcionarioService.delete(Codigo_Funcionario);
+    @DeleteMapping("/{codigoFuncionario}")
+    public List<Funcionario> delete(@PathVariable Integer codigoFuncionario) {
+        return funcionarioService.delete(codigoFuncionario);
     }
 }

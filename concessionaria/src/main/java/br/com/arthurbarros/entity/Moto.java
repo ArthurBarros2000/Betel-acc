@@ -1,6 +1,6 @@
 package br.com.arthurbarros.entity;
 
-
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -13,95 +13,86 @@ public class Moto {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int Codigo_Moto;
-    private String Nome;
-    private String Marca;
-    private String Modelo;
-    private int Ano_Fabricacao;
-    private String Cor;
-    private int Cilindrada;
-    private double Potencia;
-    private int Quilometragem;
-    private String Tipo; 
-    
-    // Getters e Setters
-    public int getCodigo_Moto() {
-        return Codigo_Moto;
+    @Column(name = "codigoMoto")
+    private Integer codigoMoto;
+    private String marca;
+    private String modelo;
+    private int anoFabricacao;
+    private String cor;
+    private int cilindrada;
+    private double potencia;
+    private int quilometragem;
+    private String tipo; 
+
+    public Integer getCodigoMoto() {
+        return codigoMoto;
     }
 
-    public void setCodigo_Moto(int Codigo_Moto) {
-        this.Codigo_Moto = Codigo_Moto;
-    }
-    public String getNome() {
-        return Nome;
-    }
-
-    public void setNome(String Nome) {
-        this.Nome = Nome;
+    public void setCodigoMoto(Integer codigoMoto) {
+        this.codigoMoto = codigoMoto;
     }
 
     public String getMarca() {
-        return Marca;
+        return marca;
     }
 
-    public void setMarca(String Marca) {
-        this.Marca = Marca;
+    public void setMarca(String marca) {
+        this.marca = marca;
     }
 
     public String getModelo() {
-        return Modelo;
+        return modelo;
     }
 
-    public void setModelo(String Modelo) {
-        this.Modelo = Modelo;
+    public void setModelo(String modelo) {
+        this.modelo = modelo;
     }
 
-    public int getAno_Fabricacao() {
-        return Ano_Fabricacao;
+    public int getAnoFabricacao() {
+        return anoFabricacao;
     }
 
-    public void setAno_Fabricacao(int Ano_Fabricacao) {
-        this.Ano_Fabricacao = Ano_Fabricacao;
+    public void setAnoFabricacao(int anoFabricacao) {
+        this.anoFabricacao = anoFabricacao;
     }
 
     public String getCor() {
-        return Cor;
+        return cor;
     }
 
-    public void setCor(String Cor) {
-        this.Cor = Cor;
+    public void setCor(String cor) {
+        this.cor = cor;
     }
 
     public int getCilindrada() {
-        return Cilindrada;
+        return cilindrada;
     }
 
-    public void setCilindrada(int Cilindrada) {
-        this.Cilindrada = Cilindrada;
+    public void setCilindrada(int cilindrada) {
+        this.cilindrada = cilindrada;
     }
 
     public double getPotencia() {
-        return Potencia;
+        return potencia;
     }
 
-    public void setPotencia(double Potencia) {
-        this.Potencia = Potencia;
+    public void setPotencia(double potencia) {
+        this.potencia = potencia;
     }
 
     public int getQuilometragem() {
-        return Quilometragem;
+        return quilometragem;
     }
 
-    public void setQuilometragem(int Quilometragem) {
-        this.Quilometragem = Quilometragem;
+    public void setQuilometragem(int quilometragem) {
+        this.quilometragem = quilometragem;
     }
 
     public String getTipo() {
-        return Tipo;
+        return tipo;
     }
 
-    public void setTipo(String Tipo) {
-        this.Tipo = Tipo;
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
     }
 }
-

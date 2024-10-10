@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import br.com.arthurbarros.entity.Moto;
 import br.com.arthurbarros.service.MotoService;
+import jakarta.validation.Valid;
 
 @RestController
 @RequestMapping("/moto")
@@ -24,7 +25,7 @@ public class MotoController {
     }
 
     @PostMapping
-    List<Moto> create(@RequestBody Moto moto) {
+    List<Moto> create(@RequestBody @Valid  Moto moto) {
         return motoService.create(moto);
     }
     
@@ -33,13 +34,14 @@ public class MotoController {
         return motoService.list();
     }
 
-    @PutMapping
-    List<Moto> update(@RequestBody Moto moto) {
+    @PutMapping("/{codigoMoto}")
+    public List<Moto> update(@PathVariable Integer codigoMoto, @RequestBody Moto moto) {
+        moto.setCodigoMoto(codigoMoto);  
         return motoService.update(moto);
     }
 
-    @DeleteMapping("{Codigo_Moto}")
-    List<Moto> delete(@PathVariable("Codigo_Moto") int Codigo_Moto) {
-        return motoService.delete(Codigo_Moto);
+    @DeleteMapping("/{codigoMoto}")
+    List<Moto> delete(@PathVariable("codigoMoto") Integer codigoMoto) {
+        return motoService.delete(codigoMoto);
     }
 }

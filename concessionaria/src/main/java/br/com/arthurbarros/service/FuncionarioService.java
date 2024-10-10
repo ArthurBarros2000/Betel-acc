@@ -20,8 +20,8 @@ public class FuncionarioService {
     }
 
     public List<Funcionario> list() {
-        Sort sort = Sort.by("Nome").ascending()
-                       .and(Sort.by("Cargo").ascending());
+        Sort sort = Sort.by("nome").ascending()
+                       .and(Sort.by("cargo").ascending());
         return funcionarioRepository.findAll(sort);
     }
 
@@ -30,8 +30,8 @@ public class FuncionarioService {
         return list();
     }
 
-    public List<Funcionario> delete(int Codigo_Funcionario) {
-        funcionarioRepository.deleteById(Codigo_Funcionario);
+    public List<Funcionario> delete(int codigoFuncionario) {
+        funcionarioRepository.deleteById(codigoFuncionario);
         return list();
     }
 }

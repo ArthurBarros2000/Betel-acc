@@ -1,125 +1,121 @@
 package br.com.arthurbarros.entity;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.NotBlank;
 
 @Entity
 @Table(name = "tb_carro")
 public class Carro {
-@Id
-@GeneratedValue(strategy = GenerationType.IDENTITY)
-private int Codigo_Carro;
-private int Nome;
-private String Cor;
-private String Marca;
-private int Ano;
-private double Quilometragem;
-private double Preco;
-private String Modelo;
-private String Condicao;
-private double Motor;
-private String Transmissao;
-private int Portas;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "codigoCarro")
+    private Integer codigoCarro;
+    private String cor;
+    @NotBlank
+    private String marca;
+    private int ano;
+    private double quilometragem;
+    private double preco;
+    @NotBlank
+    private String modelo;
+    @NotBlank
+    private String condicao;
+    private double motor;
+    @NotBlank
+    private String transmissao;
+    private int portas;
 
-// getters e setters
-public int getCodigo_Carro() {
-    return Codigo_Carro;
-}
+    // getters e setters
+    public Integer getCodigoCarro() {
+        return codigoCarro;
+    }
 
-public void setCodigo_Carro(int Codigo_Carro) {
-    this.Codigo_Carro = Codigo_Carro;
-}
-public int getNome() {
-    return Nome;
-}
+    public void setCodigoCarro(Integer codigoCarro) {
+        this.codigoCarro = codigoCarro;
+    }
 
-public void setNome(int Nome) {
-    this.Nome = Nome;
-}
+    public String getCor() {
+        return cor;
+    }
 
-public String getCor() {
-    return Cor;
-}
+    public void setCor(String cor) {
+        this.cor = cor;
+    }
 
-public void setCor(String Cor) {
-    this.Cor = Cor;
-}
+    public String getMarca() {
+        return marca;
+    }
 
-public String getMarca() {
-    return Marca;
-}
+    public void setMarca(String marca) {
+        this.marca = marca;
+    }
 
-public void setMarca(String Marca) {
-    this.Marca = Marca;
-}
+    public int getAno() {
+        return ano;
+    }
 
-public int getAno() {
-    return Ano;
-}
+    public void setAno(int ano) {
+        this.ano = ano;
+    }
 
-public void setAno(int Ano) {
-    this.Ano = Ano;
-}
+    public double getQuilometragem() {
+        return quilometragem;
+    }
 
-public double getQuilometragem() {
-    return Quilometragem;
-}
+    public void setQuilometragem(double quilometragem) {
+        this.quilometragem = quilometragem;
+    }
 
-public void setQuilometragem(double Quilometragem) {
-    this.Quilometragem = Quilometragem;
-}
+    public double getPreco() {
+        return preco;
+    }
 
-public double getPreco() {
-    return Preco;
-}
+    public void setPreco(double preco) {
+        this.preco = preco;
+    }
 
-public void setPreco(double Preco) {
-    this.Preco = Preco;
-}
+    public String getModelo() {
+        return modelo;
+    }
 
-public String getModelo() {
-    return Modelo;
-}
+    public void setModelo(String modelo) {
+        this.modelo = modelo;
+    }
 
-public void setModelo(String Modelo) {
-    this.Modelo = Modelo;
-}
+    public String getCondicao() {
+        return condicao;
+    }
 
-public String getCondicao() {
-    return Condicao;
-}
+    public void setCondicao(String condicao) {
+        this.condicao = condicao;
+    }
 
-public void setCondicao(String Condicao) {
-    this.Condicao = Condicao;
-}
+    public double getMotor() {
+        return motor;
+    }
 
-public double getMotor() {
-    return Motor;
-}
+    public void setMotor(double motor) {
+        this.motor = motor;
+    }
 
-public void setMotor(double Motor) {
-    this.Motor = Motor;
-}
+    public String getTransmissao() {
+        return transmissao;
+    }
 
-public String getTransmissao() {
-    return Transmissao;
-}
+    public void setTransmissao(String transmissao) {
+        this.transmissao = transmissao;
+    }
 
-public void setTransmissao(String Transmissao) {
-    this.Transmissao = Transmissao;
-}
+    public int getPortas() {
+        return portas;
+    }
 
-public int getPortas() {
-    return Portas;
-}
-
-public void setPortas(int Portas) {
-    this.Portas = Portas;
-}
-
-
-
+    public void setPortas(int portas) {
+        this.portas = portas;
+    }
 }

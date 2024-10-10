@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import br.com.arthurbarros.entity.Carro;
 import br.com.arthurbarros.service.CarroService;
+import jakarta.validation.Valid;
 
 @RestController
 @RequestMapping("/carro")
@@ -25,7 +26,7 @@ public class CarroController {
     }
 
 @PostMapping
-    List<Carro> create(@RequestBody Carro carro){
+    List<Carro> create(@RequestBody @Valid Carro carro){
        return  carroService.create(carro);
 
     }
@@ -35,14 +36,15 @@ public class CarroController {
         return carroService.list();
 
     }
-    @PutMapping
-    List<Carro> update(@RequestBody Carro carro) {
+    @PutMapping("/{codigoCarro}")
+    public List<Carro> update(@PathVariable Integer codigoCarro, @RequestBody Carro carro) {
+        carro.setCodigoCarro(codigoCarro);  
         return carroService.update(carro);
 
     }
-    @DeleteMapping("{Codigo_Carro}")
-    List<Carro> delete(@PathVariable("Codigo_Carro") int Codigo_Carro) {
-        return carroService.delete(Codigo_Carro);
+    @DeleteMapping("/{codigoCarro}")
+    List<Carro> delete(@PathVariable("codigoCarro") Integer codigoCarro) {
+        return carroService.delete(codigoCarro);
 
     }
 

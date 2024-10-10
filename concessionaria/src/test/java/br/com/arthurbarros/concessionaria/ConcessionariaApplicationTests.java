@@ -7,7 +7,13 @@ import org.springframework.boot.test.context.SpringBootTest;
 class ConcessionariaApplicationTests {
 
 	@Test
-	void contextLoads() {
+	void testCreateConcessionariaSucess(){
+		
+	}
+
+	@Test
+	void testCreateConcessionariaFailure(){
+		
 	}
 
 }

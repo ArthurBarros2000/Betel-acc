@@ -13,7 +13,7 @@ public class CarroService {
 private CarroRepository carroRepository;
     
 public CarroService(CarroRepository carroRepository) {
-        this.carroRepository =   carroRepository;
+        this.carroRepository = carroRepository;
     }
 
 
@@ -24,9 +24,9 @@ public CarroService(CarroRepository carroRepository) {
 
  }
  public List<Carro> list() {
-   Sort sort = Sort.by("Nome").ascending()
-       .and(Sort.by("Marca").ascending())
-       .and(Sort.by("Modelo").ascending());
+  Sort sort = Sort.by("marca").ascending()
+  .and(Sort.by("cor").ascending())
+  .and(Sort.by("modelo").ascending());
    return carroRepository.findAll(sort);
 }
 
@@ -35,8 +35,8 @@ public CarroService(CarroRepository carroRepository) {
    return list();
 
  }
- public List<Carro> delete(int Codigo_Carro) {
-   carroRepository.deleteById(Codigo_Carro);
+ public List<Carro> delete(int codigoCarro) {
+   carroRepository.deleteById(codigoCarro);
    return list();
 
  }

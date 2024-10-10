@@ -1,5 +1,6 @@
 package br.com.arthurbarros.entity;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -13,76 +14,77 @@ public class Funcionario {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int Codigo_Funcionario;
-    private String Nome;
-    private int Idade;
-    private String CPF;
-    private String Endereco;
-    private double Salario;
-    private String Cargo;
-    private Date Data_Admissao;  
-    // Getters e Setters
-    public int getCodigo_Funcionario() {
-        return Codigo_Funcionario;
+    @Column(name = "codigoFuncionario")
+    private Integer codigoFuncionario;
+    private String nome;
+    private int idade;
+    private String cpf;
+    private String endereco;
+    private double salario;
+    private String cargo;
+    private Date dataAdmissao;  
+
+    public Integer getCodigoFuncionario() {
+        return codigoFuncionario;
     }
 
-    public void setCodigo_Funcionario(int Codigo_Funcionario) {
-        this.Codigo_Funcionario = Codigo_Funcionario;
+    public void setCodigoFuncionario(Integer codigoFuncionario) {
+        this.codigoFuncionario = codigoFuncionario;
     }
 
     public String getNome() {
-        return Nome;
+        return nome;
     }
 
-    public void setNome(String Nome) {
-        this.Nome = Nome;
+    public void setNome(String nome) {
+        this.nome = nome;
     }
 
     public int getIdade() {
-        return Idade;
+        return idade;
     }
 
-    public void setIdade(int Idade) {
-        this.Idade = Idade;
+    public void setIdade(int idade) {
+        this.idade = idade;
     }
 
-    public String getCPF() {
-        return CPF;
+    public String getCpf() {
+        return cpf;
     }
 
-    public void setCPF(String CPF) {
-        this.CPF = CPF;
+    public void setCpf(String cpf) {
+        this.cpf = cpf;
     }
 
     public String getEndereco() {
-        return Endereco;
+        return endereco;
     }
 
-    public void setEndereco(String Endereco) {
-        this.Endereco = Endereco;
+    public void setEndereco(String endereco) {
+        this.endereco = endereco;
     }
 
     public double getSalario() {
-        return Salario;
+        return salario;
     }
 
-    public void setSalario(double Salario) {
-        this.Salario = Salario;
+    public void setSalario(double salario) {
+        this.salario = salario;
     }
 
     public String getCargo() {
-        return Cargo;
+        return cargo;
     }
 
-    public void setCargo(String Cargo) {
-        this.Cargo = Cargo;
+    public void setCargo(String cargo) {
+        this.cargo = cargo;
     }
 
-    public Date getData_Admissao() {
-        return Data_Admissao;
+    public Date getDataAdmissao() {
+        return dataAdmissao;
     }
 
-    public void setData_Admissao(Date Data_Admissao) {
-        this.Data_Admissao = Data_Admissao;
+    public void setDataAdmissao(Date dataAdmissao) {
+        this.dataAdmissao = dataAdmissao;
     }
 }

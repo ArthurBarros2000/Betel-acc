@@ -10,7 +10,7 @@ import br.com.arthurbarros.repository.FornecedorRepository;
 
 @Service
 public class FornecedorService {
-    private final FornecedorRepository fornecedorRepository;
+    private FornecedorRepository fornecedorRepository;
 
     public FornecedorService(FornecedorRepository fornecedorRepository) {
         this.fornecedorRepository = fornecedorRepository;
@@ -22,8 +22,8 @@ public class FornecedorService {
     }
 
     public List<Fornecedor> list() {
-        Sort sort = Sort.by("Nome_Empresa").ascending()
-                       .and(Sort.by("Endereco").ascending());
+        Sort sort = Sort.by("nomeEmpresa").ascending()
+                       .and(Sort.by("endereco").ascending());
         return fornecedorRepository.findAll(sort);
     }
 
@@ -32,8 +32,8 @@ public class FornecedorService {
         return list();
     }
 
-    public List<Fornecedor> delete(int Codigo_Fornecedor) {
-        fornecedorRepository.deleteById(Codigo_Fornecedor);
+    public List<Fornecedor> delete(int codigoFornecedor) {
+        fornecedorRepository.deleteById(codigoFornecedor);
         return list();
     }
 }

@@ -1,5 +1,6 @@
 package br.com.arthurbarros.entity;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -7,112 +8,110 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import java.sql.Date;
 
-    
 @Entity
 @Table(name = "tb_fornecedor")
 public class Fornecedor {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int Codigo_Fornecedor;
-    private String Nome_Empresa;
-    private String CNPJ;
-    private String Telefone;
-    private String Email;
-    private String Endereco;
-    private String Cidade;
-    private String Estado;
-    private String Pais;
-    private Date Data_Cadastro;  
-    private String Observacoes;
+    @Column(name = "codigoFornecedor")
+    private Integer codigoFornecedor;
+    private String nomeEmpresa;
+    private String cnpj;
+    private String telefone;
+    private String email;
+    private String endereco;
+    private String cidade;
+    private String estado;
+    private String pais;
+    private Date dataCadastro;
+    private String observacoes;
 
-    // Getters e Setters
-    public int getCodigo_Fornecedor() {
-        return Codigo_Fornecedor;
+    public Integer getCodigoFornecedor() {
+        return codigoFornecedor;
     }
 
-    public void setCodigo_Fornecedor(int Codigo_Fornecedor) {
-        this.Codigo_Fornecedor = Codigo_Fornecedor;
+    public void setCodigoFornecedor(Integer codigoFornecedor) {
+        this.codigoFornecedor = codigoFornecedor;
     }
 
-    public String getNome_Empresa() {
-        return Nome_Empresa;
+    public String getNomeEmpresa() {
+        return nomeEmpresa;
     }
 
-    public void setNome_Empresa(String Nome_Empresa) {
-        this.Nome_Empresa = Nome_Empresa;
+    public void setNomeEmpresa(String nomeEmpresa) {
+        this.nomeEmpresa = nomeEmpresa;
     }
 
-    public String getCNPJ() {
-        return CNPJ;
+    public String getCnpj() {
+        return cnpj;
     }
 
-    public void setCNPJ(String CNPJ) {
-        this.CNPJ = CNPJ;
+    public void setCnpj(String cnpj) {
+        this.cnpj = cnpj;
     }
 
     public String getTelefone() {
-        return Telefone;
+        return telefone;
     }
 
-    public void setTelefone(String Telefone) {
-        this.Telefone = Telefone;
+    public void setTelefone(String telefone) {
+        this.telefone = telefone;
     }
 
     public String getEmail() {
-        return Email;
+        return email;
     }
 
-    public void setEmail(String Email) {
-        this.Email = Email;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public String getEndereco() {
-        return Endereco;
+        return endereco;
     }
 
-    public void setEndereco(String Endereco) {
-        this.Endereco = Endereco;
+    public void setEndereco(String endereco) {
+        this.endereco = endereco;
     }
 
     public String getCidade() {
-        return Cidade;
+        return cidade;
     }
 
-    public void setCidade(String Cidade) {
-        this.Cidade = Cidade;
+    public void setCidade(String cidade) {
+        this.cidade = cidade;
     }
 
     public String getEstado() {
-        return Estado;
+        return estado;
     }
 
-    public void setEstado(String Estado) {
-        this.Estado = Estado;
+    public void setEstado(String estado) {
+        this.estado = estado;
     }
 
     public String getPais() {
-        return Pais;
+        return pais;
     }
 
-    public void setPais(String Pais) {
-        this.Pais = Pais;
+    public void setPais(String pais) {
+        this.pais = pais;
     }
 
-    public Date getData_Cadastro() {
-        return Data_Cadastro;
+    public Date getDataCadastro() {
+        return dataCadastro;
     }
 
-    public void setData_Cadastro(Date Data_Cadastro) {
-        this.Data_Cadastro = Data_Cadastro;
+    public void setDataCadastro(Date dataCadastro) {
+        this.dataCadastro = dataCadastro;
     }
 
     public String getObservacoes() {
-        return Observacoes;
+        return observacoes;
     }
 
-    public void setObservacoes(String Observacoes) {
-        this.Observacoes = Observacoes;
+    public void setObservacoes(String observacoes) {
+        this.observacoes = observacoes;
     }
 }
-
