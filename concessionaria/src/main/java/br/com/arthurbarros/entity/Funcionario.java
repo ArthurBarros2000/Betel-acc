@@ -6,10 +6,15 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
+
 import java.sql.Date;
 
 @Entity
 @Table(name = "tb_funcionario")
+@AllArgsConstructor
+@NoArgsConstructor
 public class Funcionario {
 
     @Id
@@ -17,15 +22,16 @@ public class Funcionario {
     @Column(name = "codigoFuncionario")
     private Integer codigoFuncionario;
     private String nome;
-    private int idade;
+    private String senha; 
+    private Date idade;
     private String cpf;
     private String endereco;
     private double salario;
     private String cargo;
     private Date dataAdmissao;  
 
-    public Integer getCodigoFuncionario() {
-        return codigoFuncionario;
+    public Integer getCodigoFuncionario() {   
+        return  codigoFuncionario;
     }
 
     public void setCodigoFuncionario(Integer codigoFuncionario) {
@@ -39,12 +45,20 @@ public class Funcionario {
     public void setNome(String nome) {
         this.nome = nome;
     }
+    public String getSenha() { 
+        return senha;
+    }
 
-    public int getIdade() {
+    public void setSenha(String senha) {
+        this.senha = senha;
+    }
+
+
+    public Date getIdade() {
         return idade;
     }
 
-    public void setIdade(int idade) {
+    public void setIdade(Date idade) {
         this.idade = idade;
     }
 
@@ -84,7 +98,7 @@ public class Funcionario {
         return dataAdmissao;
     }
 
-    public void setDataAdmissao(Date dataAdmissao) {
+    public void setDataAdmissao(Date dataAdmissao) { 
         this.dataAdmissao = dataAdmissao;
     }
 }

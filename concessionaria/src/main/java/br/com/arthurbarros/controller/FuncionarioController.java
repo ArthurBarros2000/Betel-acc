@@ -2,6 +2,7 @@ package br.com.arthurbarros.controller;
 
 import java.util.List;
 
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -29,7 +30,16 @@ public class FuncionarioController {
         return funcionarioService.create(funcionario);
     }
     
+    
     @GetMapping
+     public ResponseEntity<String> getFuncionario(){
+        return ResponseEntity.ok("Sucesso!");
+
+        }
+    
+    
+    
+    @GetMapping("/funcionario/{codigoFuncionario}")
     public List<Funcionario> list() {
         return funcionarioService.list();
     }
