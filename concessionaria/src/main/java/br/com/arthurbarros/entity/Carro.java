@@ -6,7 +6,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
-import jakarta.validation.constraints.NotBlank;
+
 
 @Entity
 @Table(name = "tb_carro")
@@ -16,17 +16,14 @@ public class Carro {
     @Column(name = "codigoCarro")
     private Integer codigoCarro;
     private String cor;
-    @NotBlank
     private String marca;
+    private String fornecedor;
     private int ano;
     private double quilometragem;
     private double preco;
-    @NotBlank
     private String modelo;
-    @NotBlank
     private String condicao;
     private double motor;
-    @NotBlank
     private String transmissao;
     private int portas;
 
@@ -53,6 +50,13 @@ public class Carro {
 
     public void setMarca(String marca) {
         this.marca = marca;
+    }
+    public String getFornecedor() {
+        return fornecedor;
+    }
+
+    public void setFornecedor(String fornecedor) {
+        this.fornecedor = fornecedor;
     }
 
     public int getAno() {
