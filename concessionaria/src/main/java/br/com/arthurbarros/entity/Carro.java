@@ -15,16 +15,27 @@ public class Carro {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "codigoCarro")
     private Integer codigoCarro;
+    @Column(nullable = false)
     private String cor;
+    @Column(nullable = false)
     private String marca;
+    @Column(nullable = false)
     private String fornecedor;
+    @Column(nullable = false)
     private int ano;
+    @Column(nullable = false)
     private double quilometragem;
+    @Column(nullable = false)
     private double preco;
+    @Column(nullable = false)
     private String modelo;
+    @Column(nullable = false)
     private String condicao;
+    @Column(nullable = false)
     private double motor;
+    @Column(nullable = false)
     private String transmissao;
+    @Column(nullable = false)
     private int portas;
 
     // getters e setters
