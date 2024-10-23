@@ -21,13 +21,21 @@ public class Funcionario {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "codigoFuncionario")
     private Integer codigoFuncionario;
+    @Column(nullable = false)
     private String nome;
+    @Column(nullable = false)
     private String senha; 
+    @Column(nullable = false)
     private Date idade;
+    @Column(nullable = false)
     private String cpf;
+    @Column(nullable = false)
     private String endereco;
+    @Column(nullable = false)
     private double salario;
+    @Column(nullable = false)
     private String cargo;
+    @Column(nullable = false)
     private Date dataAdmissao;  
 
     public Integer getCodigoFuncionario() {   
