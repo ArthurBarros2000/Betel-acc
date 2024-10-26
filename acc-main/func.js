@@ -15,33 +15,28 @@ document.getElementById('employee-form').addEventListener('submit', async functi
 
     try {
         
-        const response = await fetch('http://localhost:8080/register', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(formData)
-        });
+        const response = await axios.post('http://localhost:8080/auth/register', FormData)
 
-        if (response.ok) {
-            const result = await response.json();
+        if (response.status === 201) {
             alert('Funcionário cadastrado com sucesso!');
-            console.log(result);
-        } else {
-            alert('Não foi possível cadastrar funcionário!');
+            console.log(response.data);
         }
     } catch (error) {
+        alert('Não foi possível cadastrar funcionário!');
         console.error('Erro:', error);
     }
 });
-const express = require('express');
+           
+
+       
+const express = require('localhost');
 const app = express();
 const port = 8080;
 
 app.use(express.json()); 
 
 
-app.post('/funcionarios', (req, res) => {
+app.post('/register', (req, res) => {
     const { firstname, birthdate, cpf, position, password, address, admissionDate, salary } = req.body;
 
    
