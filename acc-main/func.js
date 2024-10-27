@@ -15,7 +15,7 @@ document.getElementById('employee-form').addEventListener('submit', async functi
 
     try {
         
-        const response = await axios.post('http://localhost:8080/auth/register', FormData)
+        const response = await axios.post('http://localhost:8080/auth/register', formData)
 
         if (response.status === 201) {
             alert('Funcionário cadastrado com sucesso!');
@@ -25,27 +25,4 @@ document.getElementById('employee-form').addEventListener('submit', async functi
         alert('Não foi possível cadastrar funcionário!');
         console.error('Erro:', error);
     }
-});
-           
-
-       
-const express = require('localhost');
-const app = express();
-const port = 8080;
-
-app.use(express.json()); 
-
-
-app.post('/register', (req, res) => {
-    const { firstname, birthdate, cpf, position, password, address, admissionDate, salary } = req.body;
-
-   
-    console.log('Novo funcionário!!!:', req.body);
-
-   
-    res.status(201).json({ message: 'Funcionário cadastrado!', data: req.body });
-});
-
-app.listen(port, () => {
-    console.log(`Servidor rodando em http://localhost:${port}`);
 });
