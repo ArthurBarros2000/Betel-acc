@@ -1,13 +1,14 @@
 document.getElementById('employee-form').addEventListener('submit', async function(e) {
     e.preventDefault(); 
 
-    // Formata a data para o padrão esperado pelo backend (YYYY-MM-DD)
-    const birthdate = new Date(document.getElementById('birthdate').value).toISOString().split('T')[0];
-    const admissionDate = new Date(document.getElementById('admission-date').value).toISOString().split('T')[0];
+    // Formata as datas para o padrão esperado pelo backend (YYYY-MM-DD)
+    const birthdate = document.getElementById('birthdate').value;
+    const admissionDate = document.getElementById('admission-date').value;
 
     // Obtém o CPF e remove caracteres não numéricos
     const cpf = document.getElementById('cpf').value.replace(/[^\d]/g, '');
 
+    // Monta os dados do formulário
     const formData = {
         nome: document.getElementById('firstname').value,
         idade: birthdate,  // Data de nascimento formatada
@@ -25,14 +26,17 @@ document.getElementById('employee-form').addEventListener('submit', async functi
     try {
         const response = await axios.post('http://localhost:8080/auth/register', formData);
 
-        if (response.status === 201) {
+        if (response.status === 201 || response.status === 200) {  // Confirma sucesso no cadastro
             alert('Funcionário cadastrado com sucesso!');
             console.log(response.data);
         }
     } catch (error) {
-        alert('Não foi possível cadastrar funcionário!');
+        alert('Não foi possível cadastrar o funcionário.');
+        
+        // Exibe o erro específico no console para ajudar no diagnóstico
         if (error.response) {
             console.error('Erro de resposta:', error.response.data);
+            console.error('Status code:', error.response.status);
         } else if (error.request) {
             console.error('Erro de requisição:', error.request);
         } else {
