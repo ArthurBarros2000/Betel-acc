@@ -28,7 +28,6 @@ public class Carro {
     private String transmissao;
     private int portas;
 
-    // getters e setters
     public Integer getCodigoCarro() {
         return codigoCarro;
     }

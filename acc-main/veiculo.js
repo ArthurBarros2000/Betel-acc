@@ -23,16 +23,16 @@ document.addEventListener('DOMContentLoaded', function() {
                 });
 
                 if (response.ok) {
-                    const responseData = await response.json(); // Captura a resposta do servidor
-                    console.log(responseData); // Loga a resposta do servidor
+                    const responseData = await response.json();
+                    console.log(responseData); 
                     alert('Carro cadastrado com sucesso!');
-                    form.reset(); // Limpa o formulário após o cadastro
+                    form.reset(); 
                 } else {
-                    // Trata diferentes códigos de status da resposta
+                    
                     if (response.status === 403) {
                         alert('Acesso negado! Você não tem permissão para cadastrar o veículo.');
                     } else {
-                        const errorData = await response.json(); // Captura detalhes do erro
+                        const errorData = await response.json(); 
                         console.error('Erro do servidor:', errorData);
                         alert('Não foi possível cadastrar o veículo. Verifique os dados e tente novamente.');
                     }
