@@ -34,7 +34,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     } else {
                         const errorData = await response.json(); 
                         console.error('Erro do servidor:', errorData);
-                        alert('Não foi possível cadastrar o veículo. Verifique os dados e tente novamente.');
+                        alert('Erro ao cadastrar o veículo.');
                     }
                 }
             } catch (error) {

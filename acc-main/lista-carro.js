@@ -6,18 +6,18 @@ function fetchVeiculos() {
     fetch('http://localhost:8080/carro')
         .then(response => {
             if (!response.ok) {
-                throw new Error(`Erro na resposta do servidor: ${response.status}`);
+                throw new Error(`Servidor não conectado: ${response.status}`);
             }
-            return response.json(); // Tenta converter a resposta para JSON
+            return response.json(); 
         })
         .then(data => {
             if (Array.isArray(data)) {
-                exibirVeiculos(data); // Verifica se o retorno é um array de veículos
+                exibirVeiculos(data); 
             } else {
                 throw new Error("Formato de resposta inesperado.");
             }
         })
-        .catch(error => console.error('ERRO AO PESQUISAR VEICULO:', error));
+        .catch(error => console.error('Erro ao pesquisar o veículo:', error));
 }
 
 function exibirVeiculos(veiculos) {
@@ -43,3 +43,9 @@ function exibirVeiculos(veiculos) {
         listaVeiculos.appendChild(item);
     });
 }
+
+window.scrollTo({
+    top: 0,
+    behavior: 'smooth' 
+  });
+  

@@ -1,5 +1,6 @@
 package br.com.arthurbarros.controller;
 
+
 import java.util.Optional;
 
 import org.apache.catalina.connector.Response;
@@ -19,6 +20,7 @@ import br.com.arthurbarros.repository.FuncionarioRepository;
 import br.com.arthurbarros.security.TokenService;
 import lombok.RequiredArgsConstructor;
 
+
 @RestController
 @CrossOrigin("*")
 @RequestMapping("/auth")
@@ -31,19 +33,19 @@ public class AuthController {
     
 
     @PostMapping("/login") 
-    public ResponseEntity login(@RequestBody LoginRequestDTO body ) {
+    public ResponseEntity<Object> login(@RequestBody LoginRequestDTO body ) { 
         Funcionario funcionario = this.repository.findByCpf(body.cpf()).orElseThrow(() -> new RuntimeException ("Funcionário não encontrado"));
-        if (passwordEncoder.matches(funcionario.getSenha(), body.senha())) {
+        if (passwordEncoder.matches( body.password(),funcionario.getSenha())) {
             String token = this.tokenService.generateToken(funcionario);
-            return ResponseEntity.ok(new ResponseDTO (funcionario.getNome(), token));
+            return ResponseEntity.ok().body(new ResponseDTO (funcionario.getNome(), token));
             
         }
-        return ResponseEntity.badRequest().build();
+        return ResponseEntity.badRequest().body("Funcionário não encontrado");
     }
 
 
     @PostMapping("/register") 
-    public ResponseEntity register(@RequestBody RegisterRequestDTO body ) {
+    public ResponseEntity<Object>register(@RequestBody RegisterRequestDTO body ) {
 
         Optional<Funcionario> funcionario = this.repository.findByCpf(body.cpf());
         if (funcionario.isEmpty()) {

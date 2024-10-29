@@ -319,6 +319,13 @@ body {
  
  
  } 
+ .scrolltable{
+    width: 300px;
+    height: 200px;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    margin-top: 10%;
+ }
 
  .veiculo{
     border: 2px solid #ffa500;

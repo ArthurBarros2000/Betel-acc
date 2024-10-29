@@ -31,7 +31,7 @@ document.getElementById('employee-form').addEventListener('submit', async functi
             console.log(response.data);
         }
     } catch (error) {
-        alert('Ocorreu um erro ao cadastrar um funcionário.');
+        alert('Erro ao cadastrar um funcionário.');
         
        
         if (error.response) {
